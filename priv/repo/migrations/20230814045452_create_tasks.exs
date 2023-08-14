@@ -4,7 +4,7 @@ defmodule Todolist.Repo.Migrations.CreateTasks do
   def change do
     create table(:tasks) do
       add :task_name, :string, null: false
-      add :due_date, :date
+      add :due_date, :utc_datetime
       add :priority, :string
       timestamps()
     end

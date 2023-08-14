@@ -25,13 +25,13 @@ defmodule Todolist.TasksTest do
     test "create_task/1 with valid data creates a task" do
       valid_attrs = %{
         task_name: "some task name",
-        due_date: "~D[2023-8-14]",
+        due_date: ~U[2023-07-20 15:45:00Z],
         priority: :low
       }
 
       assert {:ok, %Task{} = task} = Tasks.create_task(valid_attrs)
       assert task.task_name == "some task name"
-      assert task.due_date == ~D[2023-08-14]
+      assert task.due_date == ~U[2023-07-20 15:45:00Z]
       assert task.priority == :low
     end
 
@@ -44,13 +44,13 @@ defmodule Todolist.TasksTest do
 
       update_attrs = %{
         task_name: "some updated task name",
-        due_date: "~D[2023-9-14]",
+        due_date: ~U[2023-08-20 15:45:00Z],
         priority: :high
       }
 
       assert {:ok, %Task{} = task} = Tasks.update_task(task, update_attrs)
       assert task.task_name == "some updated task name"
-      assert task.due_date == "~D[2023-9-14]"
+      assert task.due_date == ~U[2023-08-20 15:45:00Z]
       assert task.priority == :high
     end
 

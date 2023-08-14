@@ -12,7 +12,7 @@ defmodule Todolist.TasksFixtures do
       attrs
       |> Enum.into(%{
         task_name: "some task name",
-        due_date: "~D[2023-9-14]",
+        due_date: ~U[2023-08-14 15:45:00Z],
         priority: :low
       })
       |> Todolist.Tasks.create_task()
